@@ -10,31 +10,31 @@ const icons = {
 
 const pages = {
   id: 'pages',
-  title: 'Pages',
-  caption: 'Pages Caption',
+  title: 'Deposit Transaction',
+  caption: '',
   type: 'group',
   children: [
     {
       id: 'authentication',
-      title: 'Authentication',
+      title: 'Transactions',
       type: 'collapse',
       icon: icons.IconKey,
 
       children: [
         {
           id: 'login3',
-          title: 'Login',
+          title: 'Pending Transactions',
           type: 'item',
-          url: '/pages/login/login3',
+          url: '/',
           target: true
         },
-        {
-          id: 'register3',
-          title: 'Register',
-          type: 'item',
-          url: '/pages/register/register3',
-          target: true
-        }
+        // {
+        //   id: 'register3',
+        //   title: '',
+        //   type: 'item',
+        //   url: '/pages/register/register3',
+        //   target: true
+        // }
       ]
     }
   ]
