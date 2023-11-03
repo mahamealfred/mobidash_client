@@ -86,7 +86,7 @@ const FirebaseLogin = ({ ...others }) => {
 
       <Formik
         initialValues={{
-          email: 'info@codedthemes.com',
+          email: 'tester1@mobicore.rw',
           password: '123456',
           submit: null
         }}
@@ -99,7 +99,7 @@ const FirebaseLogin = ({ ...others }) => {
             if (scriptedRef.current) {
               setStatus({ success: true });
               setSubmitting(false);
-             navigate('/')
+             navigate('/dashboard/default');
             }
           } catch (err) {
             console.error(err);

@@ -50,7 +50,7 @@ const Login = () => {
                             Agency Banking Management System
                           </Typography>
                           <Typography variant="caption" fontSize="16px" textAlign={matchDownSM ? 'center' : 'inherit'}>
-                            Enter your credentials to continue
+                            {/* Enter your credentials to continue */}
                           </Typography>
                         </Stack>
                       </Grid>
