@@ -14,7 +14,7 @@ const other = {
       id: 'sample-page',
       title: 'Withdrawal Transactions',
       type: 'item',
-      url: '/sample-page',
+      url: '/withdrawal-transactions',
       icon: icons.IconBrandChrome,
       breadcrumbs: false
     },

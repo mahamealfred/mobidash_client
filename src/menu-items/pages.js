@@ -25,8 +25,9 @@ const pages = {
           id: 'login3',
           title: 'Pending Transactions',
           type: 'item',
-          url: '/',
-          target: true
+          url: '/utils/util-typography',
+          breadcrumbs: false
+         // target: true
         },
         // {
         //   id: 'register3',
