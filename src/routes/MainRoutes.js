@@ -21,6 +21,7 @@ const WithdrawalPage = Loadable(lazy(() => import('views/withdrawal-page')));
 const SuccessDeposit=Loadable(lazy(() => import('views/deposit-page/SuccessDeposit')));
 const FailedDeposit=Loadable(lazy(() => import('views/deposit-page/FailedDeposit')));
 const PendingDeposit=Loadable(lazy(() => import('views/deposit-page/PendingDeposit')));
+const OpenedAccounts=Loadable(lazy(() => import('views/opened-accounts')));
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
@@ -64,6 +65,15 @@ const MainRoutes = {
         {
           path: 'pending-deposit',
           element: <PendingDeposit/>
+        }
+      ]
+    },
+    {
+      path: 'utils',
+      children: [
+        {
+          path: 'opened-accounts',
+          element: <OpenedAccounts/>
         }
       ]
     },

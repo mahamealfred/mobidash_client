@@ -20,7 +20,7 @@ const utilities = {
       id: 'util-typography',
       title: 'Account Created',
       type: 'item',
-      url: '/utils/util-typography',
+      url: '/utils/opened-accounts',
       icon: icons.IconTypography,
       breadcrumbs: false
     },
