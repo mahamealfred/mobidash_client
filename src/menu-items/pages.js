@@ -23,9 +23,25 @@ const pages = {
       children: [
         {
           id: 'login3',
+          title: 'Desposit Transactions',
+          type: 'item',
+          url: '/utils/success-deposit',
+          breadcrumbs: false
+         // target: true
+        },
+        {
+          id: 'login3',
           title: 'Pending Transactions',
           type: 'item',
-          url: '/utils/util-typography',
+          url: '/utils/pending-deposit',
+          breadcrumbs: false
+         // target: true
+        },
+        {
+          id: 'login3',
+          title: 'Failed Transactions',
+          type: 'item',
+          url: '/utils/failed-deposit',
           breadcrumbs: false
          // target: true
         },
