@@ -38,8 +38,10 @@ const SuccessDeposit = () => {
                <TableRow>
                  <TableCell>Date/Time</TableCell>
                  <TableCell align="right">Bank Reference</TableCell>
+                 <TableCell align="right">Client Name</TableCell>
                  <TableCell align="right">Client Account</TableCell>
                  <TableCell align="right">Amount</TableCell>
+                 <TableCell align="right">Agent ID</TableCell>
                  <TableCell align="right">Status</TableCell>
                </TableRow>
              </TableHead>
@@ -55,8 +57,10 @@ const SuccessDeposit = () => {
                       {row.date}
                     </TableCell>
                     <TableCell align="right">{row.bank_reference}</TableCell>
+                    <TableCell align="right">{row.client_name}</TableCell>
                     <TableCell align="right">{row.client_account}</TableCell>
                     <TableCell align="right">{row.deposit_amount}</TableCell>
+                    <TableCell align="right">{row.agent_id}</TableCell>
                     <TableCell align="right">{row.authorization_mobicore_response==204?"Success":row.authorization_mobicore_response}</TableCell>
                   </TableRow>
                 ))}
