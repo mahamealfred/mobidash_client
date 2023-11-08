@@ -11,6 +11,7 @@ import Paper from '@mui/material/Paper';
 
 // project imports
 import MainCard from 'ui-component/cards/MainCard';
+import useFetch from 'hooks/useFetch';
 
 // createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
 // createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
@@ -18,67 +19,56 @@ import MainCard from 'ui-component/cards/MainCard';
 // createData('Cupcake', 305, 3.7, 67, 4.3),
 // createData('Gingerbread', 356, 16.0, 49, 3.9),
 
-const rows = [
- {
- "date":"2023-11-01",
- "bankreference":"129273733",
- "clientaccount":"21129930022334",
- "amount":"10000",
- "status":"Success",
- },
- {
-    "date":"2023-11-02",
-    "bankreference":"129273733",
-    "clientaccount":"210029930022334",
-    "amount":"20000",
-    "status":"Success",
-},
-{
-    "date":"2023-11-03",
-    "bankreference":"129273733",
-    "clientaccount":"211200930022334",
-    "amount":"40000",
-    "status":"Success",
-}
-];
+
 
 
   
 // ==============================|| SAMPLE PAGE ||============================== //
 
-const SuccessDeposit = () => (
-  <MainCard title="Deposit Transactions" style={{textAlign:"center"}}>
-   
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
-        <TableHead>
-          <TableRow>
-            <TableCell>Date/Time</TableCell>
-            <TableCell align="right">Bank Reference</TableCell>
-            <TableCell align="right">Client Account</TableCell>
-            <TableCell align="right">Amount</TableCell>
-            <TableCell align="right">Status</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {rows.map((row) => (
-            <TableRow
-              key={row.clientaccount}
-              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            >
-              <TableCell component="th" scope="row">
-                {row.date}
-              </TableCell>
-              <TableCell align="right">{row.bankreference}</TableCell>
-              <TableCell align="right">{row.clientaccount}</TableCell>
-              <TableCell align="right">{row.amount}</TableCell>
-              <TableCell align="right">{row.status}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  </MainCard>
-);
+const SuccessDeposit = () => {
+    const { data,loading}=useFetch(`http://52.36.87.202:8000/api/agency-banking-management-sys/v1/logs/deposit`);
+   // consile.log("Data:",data)
+
+  return (
+    <div>
+     <MainCard title="Deposit Transactions" style={{textAlign:"center"}}>
+         <TableContainer component={Paper}>
+           <Table sx={{ minWidth: 650 }} size="small" aria-label="a dense table">
+             <TableHead>
+               <TableRow>
+                 <TableCell>Date/Time</TableCell>
+                 <TableCell align="right">Bank Reference</TableCell>
+                 <TableCell align="right">Client Account</TableCell>
+                 <TableCell align="right">Amount</TableCell>
+                 <TableCell align="right">Status</TableCell>
+               </TableRow>
+             </TableHead>
+             {
+                loading?"Loading ...":
+                <TableBody>
+                {data.data?.map((row) => (
+                  <TableRow
+                    key={row.id}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {row.date}
+                    </TableCell>
+                    <TableCell align="right">{row.bank_reference}</TableCell>
+                    <TableCell align="right">{row.client_account}</TableCell>
+                    <TableCell align="right">{row.deposit_amount}</TableCell>
+                    <TableCell align="right">{row.authorization_mobicore_response==204?"Success":row.authorization_mobicore_response}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+             }
+            
+           </Table>
+         </TableContainer>
+       </MainCard> 
+    </div>
+  )
+}
 
 export default SuccessDeposit;
+
